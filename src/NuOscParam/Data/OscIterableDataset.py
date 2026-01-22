@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 class OscIterableDataset(IterableDataset, ABC):
-    def __init__(self, ranges=None, batch_size=1, cropC=30, cropR=80, device="cpu", pred_param='theta_12', mode='vacuum', return_params=False):
+    def __init__(self, ranges=None, batch_size=1, cropC=30, cropR=80, device="cpu", pred_param='ALL', mode='earth', return_params=False):
         if ranges is None:
             ranges = NEUTRINO_RANGES_EXTENDED
         self.cropC = cropC
