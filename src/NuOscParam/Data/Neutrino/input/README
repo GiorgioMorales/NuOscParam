@@ -1,0 +1,10 @@
+prem model file columns are :
+ - radius_max (km), density (g/cm3), Z/A, index
+ 
+nu_e, bar_nu_e (mu) are tables with neutrino flux columns
+ - Energy (GeV), flux for different cos theta (bin value from ctheta.txt)
+This data comes from https://cds.cern.ch/record/566058/files/0207035.pdf
+Zenith angle distributions of μ-like and e-like events for sub-GeV and multi-GeV data sets. 
+Upward-going particles have cos Θ < 0 and downward-going particles have cos Θ > 0. 
+
+
