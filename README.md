@@ -14,7 +14,7 @@ Furthermore, we introduce a neural network-based uncertainty quantification mech
 <figure style="display: flex; flex-direction: column; align-items: center;">
     <img src="results/Neutrino.jpg" alt="figure" width="80%">
     <figcaption style="text-align: center; margin-top: 5px; font-style: italic;">
-        Overview of the proposed $\nu$ oscillation parameters estimation.
+        Overview of the proposed $$\nu$$ oscillation parameters estimation.
     </figcaption>
 </figure>
 
@@ -39,7 +39,7 @@ We use a simulator that generates 9 oscillation probability maps:
 | **$\nu_\mu$ (detected)** | $P(\nu_\mu \leftarrow \nu_e)$ | $P(\nu_\mu \leftarrow \nu_\mu)$ | $P(\nu_\mu \leftarrow \nu_\tau)$ |
 | **$\nu_\tau$ (detected)** | $P(\nu_\tau \leftarrow \nu_e)$ | $P(\nu_\tau \leftarrow \nu_\mu)$ | $P(\nu_\tau \leftarrow \nu_\tau)$ |
 
-In all cases, the $\nu$ oscillation parameters follow the order: `[theta12, theta23, theta13, delta_cp, m21, m31]`.
+In all cases, the $$$\nu$$$ oscillation parameters follow the order: `[theta12, theta23, theta13, delta_cp, m21, m31]`.
 
 **Generate Maps Using Known Oscillation Parameters**
 
@@ -47,7 +47,7 @@ To use a exact simulator, initiate the `OscIterableDataset` class with the follo
 
 **Parameters** (for now):
 
-*   `mode`: It can take the values `vacuum`, which will use a simulator that produces $\nu$ oscillation maps in vacuum, or `earth` (default), which will use a simulator that produces $\nu$ oscillation maps after Earth-matter effect. 
+*   `mode`: It can take the values `vacuum`, which will use a simulator that produces $$$\nu$$$ oscillation maps in vacuum, or `earth` (default), which will use a simulator that produces $$$\nu$$$ oscillation maps after Earth-matter effect. 
 *   `cropR`: It determines the number of rows ($\theta$) bins are used. Min:1, Max:120, Default: 80.
 *   `cropC`: It determines the number of columns (energy) bins are used. Min:1, Max:120, Default: 30.
 
@@ -59,8 +59,8 @@ from NuOscParam.Data.Simulator import Simulator
 generator = Simulator(ranges=NEUTRINO_RANGES, mode='earth', device=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
 ```
 
-To get the actual maps given a set of $\nu$ oscillation parameters, we call the `get_maps` method.
-The following example considers two sets of 6 $\nu$ oscillation parameters:
+To get the actual maps given a set of $$\nu$$ oscillation parameters, we call the `get_maps` method.
+The following example considers two sets of 6 $$\nu$$ oscillation parameters:
 
 ```python
 import numpy as np
@@ -75,7 +75,7 @@ for i in range(len(batch)):
 
 **Generate Random Maps**
 
-To generate random $\nu$ oscillation maps and corresponding oscillation parameters, we use the
+To generate random $$\nu$$ oscillation maps and corresponding oscillation parameters, we use the
 `OscIterableDataset` iterable class. Its parameters are the same as those from the `Simulator` class: 
 
 ```python
@@ -93,7 +93,6 @@ for i in range(n_samples):
     X_test.append(xtest)
     Osc_params.append(osc_pars)
     # Plot oscillation maps
-    input_image = xtest[0, :, :, :].permute(1, 2, 0)
-    plot_osc_maps(input_image, title=f"Oscillation Maps. Sample {i+1}")
+    plot_osc_maps(xtest[0, :, :, :].permute(1, 2, 0), title=f"Oscillation Maps. Sample {i+1}")
 X_test = torch.cat(X_test, dim=0)
 ```
