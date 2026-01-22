@@ -45,7 +45,7 @@ In all cases, the $\nu$ oscillation parameters follow the order: `[theta12, thet
 
 To use a exact simulator, initiate the `OscIterableDataset` class with the following parameters:
 
-**Parameters** (for now):
+**Parameters**:
 
 *   `mode`: It can take the values `vacuum`, which will use a simulator that produces $\nu$ oscillation maps in vacuum, or `earth` (default), which will use a simulator that produces $\nu$ oscillation maps after Earth-matter effect. 
 *   `cropR`: It determines the number of rows ($\theta$) bins are used. Min:1, Max:120, Default: 80.
@@ -95,4 +95,25 @@ for i in range(n_samples):
     # Plot oscillation maps    
     plot_osc_maps(input_image = xtest[0, :, :, :].permute(1, 2, 0), title=f"Oscillation Maps. Sample {i+1}")
 X_test = torch.cat(X_test, dim=0)
+```
+
+### Proposed Neutrino Parameter Estimation from Oscillation Probability Maps
+
+To use our $\nu$ oscillation parameter inference framework based on the use of Structured Hierarchical Transformers, 
+call the `OscillationEstimator` class: 
+
+```python
+from NuOscParam.OscillationEstimator import OscillationEstimator
+predictor = OscillationEstimator()
+```
+
+We use this class and the `predict` method to process a batch of $\nu$ oscillation maps:
+
+**Parameters**:
+
+*   `denormalize`: If `True`, the resulting oscillation parameters are given in their normal (operating) scale. If `False` (default), they're still normalized (between 0 and 1).
+*   `uncertainty`: If `False`, only the point predictions are retrieved using the trained transformers. If `True`, the Conformal DualAQD is used in addition to produce 90\% prediction intervals. See the [Demo](https://github.com/GiorgioMorales/NuOscParam/blob/main/DemoSHTransformer.ipynb) for more details.
+
+```python
+pred_OscParams = predictor.predict(X_test, denormalize=True, uncertainty=True)
 ```
