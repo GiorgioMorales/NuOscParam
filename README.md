@@ -42,7 +42,7 @@ After installing the `NuOscParam` library, run the following script on Python (o
 
 ### Option 2: Manual Download
 
-If instead, you cloned the repository, download the model manually from [HugginFace](https://huggingface.co/GiorgioMorales/NuInferenceModels/tree/main/ModelType-HierarchicalTransformer).
+If, instead, you cloned the repository, download the model manually from [HugginFace](https://huggingface.co/GiorgioMorales/NuInferenceModels/tree/main/ModelType-HierarchicalTransformer).
 Then, copy and paste them into the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer).
 
 ## Download Datasets
