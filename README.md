@@ -149,8 +149,6 @@ pred_OscParams = predictor.predict(X_test, denormalize=True, uncertainty=True)
 The `RunMCMC` class implements a delayed-acceptance MCMC procedure, which, in our paper, was used as a baseline method for comparison.
 While it leads to better or comparable results as our transformer-based approach, its computational cost is substantially higher.
 
-{"nwalkers": max(32, 6 * inferer.ndim), "nsteps": 900, "burn_in": 250,
-                        "init_spread": 2e-2, "budget_exact": 80, "prob_exact": 0.03}
 
 The (optional) **parameters** of the `RunMCMC` class, which are given as part of the `emcee_kwargs` parameter, are: 
 *   `nwalkers`: The number of Goodman & Weare “walkers”. Default: `36`.
