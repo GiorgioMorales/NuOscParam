@@ -1,5 +1,5 @@
-[![Open In Colab: Structured Hierarchical Transformer DEMO](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/DemoSHTransformer.ipynb)
-[![Open In Colab: MCMC DEMO](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/Demo_MCMC.ipynb)
+[![Open In Colab: Structured Hierarchical Transformer](https://img.shields.io/badge/Colab-SH_Transformer_Demo-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/DemoSHTransformer.ipynb)
+[![Open In Colab: MCMC](https://img.shields.io/badge/Colab-MCMC_Demo-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/Demo_MCMC.ipynb)
 
 
 # Neutrino Parameter Estimation from Oscillation Probability Maps
