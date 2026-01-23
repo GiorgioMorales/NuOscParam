@@ -43,7 +43,7 @@ In all cases, the $\nu$ oscillation parameters follow the order: `[theta12, thet
 
 **Generate Maps Using Known Oscillation Parameters**
 
-To use a exact simulator, initiate the `OscIterableDataset` class with the following parameters:
+To use a exact simulator, initiate the `Simulator` class with the following parameters:
 
 **Parameters**:
 
@@ -87,7 +87,7 @@ To generate random maps, we call the `next` command iterably:
 
 ```python
 X_test, Osc_params = [], []
-n_samples = 3  # Generate three random maps
+n_samples = 3  # Generate three random sets of maps
 for i in range(n_samples):
     xtest, _, osc_pars, _ = next(generator)  # Generate 1 sample
     X_test.append(xtest)
@@ -116,4 +116,27 @@ We use this class and the `predict` method to process a batch of $\nu$ oscillati
 
 ```python
 pred_OscParams = predictor.predict(X_test, denormalize=True, uncertainty=True)
+```
+
+
+### Neutrino Parameter Estimation from Oscillation Probability Maps using MCMC
+
+The `RunMCMC` class implements a delayed-acceptance MCMC procedure, which, in our paper, was used as a baseline method for comparison.
+While it leads to better or comparable results as our transformer-based approach, its computational cost is substantially higher.
+
+{"nwalkers": max(32, 6 * inferer.ndim), "nsteps": 900, "burn_in": 250,
+                        "init_spread": 2e-2, "budget_exact": 80, "prob_exact": 0.03}
+
+The (optional) **parameters** of the `RunMCMC` class, which are given as part of the `emcee_kwargs` parameter, are: 
+*   `nwalkers`: The number of Goodman & Weare “walkers”. Default: `36`.
+*   `nsteps`: The number of steps to run. Default: `900`.
+*   `burn_in`: The number of “burn-in” steps. Default: `250`.
+*   `budget_exact`: The "budget" or maximum number of times the exact simulator can be executed. Default: `80`.
+
+The `evaluate` method is then used to evaluate a given batch of oscillation maps (see [Demo](https://github.com/GiorgioMorales/NuOscParam/blob/main/Demo_MCMC.ipynb)):
+
+```python
+from NuOscParam.MCMC.RunMCMC import RunMCMC
+executor = RunMCMC(mode="earth")
+pred_OscParams = executor.evaluate(X_test)
 ```

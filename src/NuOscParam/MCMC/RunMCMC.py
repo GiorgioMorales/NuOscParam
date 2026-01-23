@@ -13,7 +13,7 @@ from NuOscParam.Data.OscIterableDataset import OscIterableDataset
 
 
 class RunMCMC:
-    def __init__(self, mode="earth"):
+    def __init__(self, mode="earth", emcee_kwargs=None):
         self.cropC, self.cropR = MAP_CROPPING
         self.mode = mode
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -34,7 +34,8 @@ class RunMCMC:
         self.simulator = self.itdataset.simulator
 
         # Define MCMC inferer
-        self.MCMC = MCMC_function(surrogate_fn=self.surrogate_simulator.simulate, simulator_fn=self.compute_simulator)
+        self.MCMC = MCMC_function(surrogate_fn=self.surrogate_simulator.simulate, simulator_fn=self.compute_simulator,
+                                  emcee_kwargs=emcee_kwargs)
         self.root = get_project_root()
         self.channels = [(0, 0), (1, 1), (2, 2), (0, 1)]
         self.channels_idx = [0, 1, 2, 3]
