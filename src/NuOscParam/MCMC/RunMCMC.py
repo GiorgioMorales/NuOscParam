@@ -8,7 +8,7 @@ from NuOscParam.utils import get_project_root
 from NuOscParam.Data.DataLoader import HDF5Dataset
 from NuOscParam.MCMC.MCMCInferer import MCMC_function
 from NuOscParam.MCMC.SurrogateModel import SurrogateModel
-from NuOscParam.Trainer.TrainTransformerUQ import MPIW_PICP
+from NuOscParam.Trainer.TrainTransformerPIs import MPIW_PICP
 from NuOscParam.Data.OscIterableDataset import OscIterableDataset
 
 
