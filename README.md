@@ -1,5 +1,6 @@
 [![Open In Colab: SH Transformer](https://img.shields.io/badge/Colab-Structured_Hierarchical_Transformer-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/DemoSHTransformer.ipynb)
 [![Open In Colab: MCMC](https://img.shields.io/badge/Colab-MCMC_Demo-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/Demo_MCMC.ipynb)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/GiorgioMorales/NuInferenceModels)
 
 # Neutrino Parameter Estimation from Oscillation Probability Maps
 
@@ -26,6 +27,30 @@ The following libraries have to be installed:
 * [Pytorch](https://pytorch.org/get-started/locally/)
 
 To install the package, run `pip install -q git+https://github.com/GiorgioMorales/NuOscParam` in the terminal.
+
+## Download Models
+
+### Option 1: Automatic download
+After installing the `NuOscParam` library, run the following script on Python (or on the terminal without the "!"): 
+
+```python
+!hf download GiorgioMorales/NuInferenceModels \
+  --repo-type model \
+  --local-dir $(python -c "import NuOscParam; import os; print(os.path.join(os.path.dirname(NuOscParam.__file__), 'Models', 'saved_models'))") \
+  --include "ModelType-HierarchicalTransformer/*"
+```
+
+### Option 2: Manual Download
+
+If instead, you cloned the repository, download the model manually from [HugginFace](https://huggingface.co/GiorgioMorales/NuInferenceModels/tree/main/ModelType-HierarchicalTransformer).
+Then, copy and paste them in the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer).
+
+## Download Datasets
+
+In case you need to retrain the models or simply access the datasets, download them from 
+[HugginFace](https://huggingface.co/GiorgioMorales/NuInferenceModels/tree/main/Datasets).
+Then, copy and paste them in the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Data/Datasets).
+
 
 ## Usage
 
