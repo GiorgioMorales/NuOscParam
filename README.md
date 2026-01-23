@@ -43,13 +43,13 @@ After installing the `NuOscParam` library, run the following script on Python (o
 ### Option 2: Manual Download
 
 If instead, you cloned the repository, download the model manually from [HugginFace](https://huggingface.co/GiorgioMorales/NuInferenceModels/tree/main/ModelType-HierarchicalTransformer).
-Then, copy and paste them in the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer).
+Then, copy and paste them into the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer).
 
 ## Download Datasets
 
 In case you need to retrain the models or simply access the datasets, download them from 
 [HugginFace](https://huggingface.co/GiorgioMorales/NuInferenceModels/tree/main/Datasets).
-Then, copy and paste them in the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Data/Datasets).
+Then, copy and paste them into the `src/NuOscParam/Models/saved_models/ModelType-HierarchicalTransformer` [folder](/src/NuOscParam/Data/Datasets).
 
 
 ## Usage
@@ -164,4 +164,22 @@ The `evaluate` method is then used to evaluate a given batch of oscillation maps
 from NuOscParam.MCMC.RunMCMC import RunMCMC
 executor = RunMCMC(mode="earth")
 pred_OscParams = executor.evaluate(X_test)
+```
+
+
+# Citation
+Use this Bibtex to cite this repository
+
+```
+@inproceedings{NuOscParam 
+title={Neutrino Oscillation Parameter Estimation Using Structured Hierarchical Transformers (in review)},
+author={Morales, Giorgio and Lehaut, Gregory and Vacheret, Antonin and Jurie, Fr\'{e}d\'{e}ric and Fadili, Jalal}, 
+volume={}, 
+number={}, 
+journal={IEEE International Joint Conference on Neural Networks (IJCNN)}, 
+year={2026}, 
+month={}, 
+pages={},
+DOI={},
+}
 ```
