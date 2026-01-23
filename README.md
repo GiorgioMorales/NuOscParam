@@ -133,7 +133,7 @@ The (optional) **parameters** of the `RunMCMC` class, which are given as part of
 *   `burn_in`: The number of “burn-in” steps. Default: `250`.
 *   `budget_exact`: The "budget" or maximum number of times the exact simulator can be executed. Default: `80`.
 
-The `evaluate` method is then used to evaluate a given batch of oscillation maps (see [Demo](https://github.com/GiorgioMorales/NuOscParam/blob/main/Demo_MCMC.ipynb)):
+The `evaluate` method is then used to evaluate a given batch of oscillation maps (see [Demo](https://colab.research.google.com/github/GiorgioMorales/NuOscParam/blob/main/Demo_MCMC.ipynb)):
 
 ```python
 from NuOscParam.MCMC.RunMCMC import RunMCMC
